@@ -1,0 +1,52 @@
+{
+	"name": "SUP_boletas_csv",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "datalake_Subsidio",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Bronze"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "SUP_boletas.csv",
+				"folderPath": "bronze",
+				"container": "subsidio-data"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "boleta_id",
+				"type": "String"
+			},
+			{
+				"name": "control_id",
+				"type": "String"
+			},
+			{
+				"name": "ci_beneficiaria",
+				"type": "String"
+			},
+			{
+				"name": "nro_boleta",
+				"type": "String"
+			},
+			{
+				"name": "fecha_emision",
+				"type": "String"
+			},
+			{
+				"name": "estado",
+				"type": "String"
+			}
+		]
+	}
+}

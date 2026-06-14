@@ -1,0 +1,60 @@
+{
+	"name": "SUP_controles_csv",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "datalake_Subsidio",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Bronze"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "SUP_controles.csv",
+				"folderPath": "bronze",
+				"container": "subsidio-data"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "control_id",
+				"type": "String"
+			},
+			{
+				"name": "ci_beneficiaria",
+				"type": "String"
+			},
+			{
+				"name": "establecimiento_id",
+				"type": "String"
+			},
+			{
+				"name": "nro_control",
+				"type": "String"
+			},
+			{
+				"name": "fecha_control",
+				"type": "String"
+			},
+			{
+				"name": "semana_gestacion",
+				"type": "String"
+			},
+			{
+				"name": "peso_madre_kg",
+				"type": "String"
+			},
+			{
+				"name": "presion_arterial",
+				"type": "String"
+			}
+		]
+	}
+}
