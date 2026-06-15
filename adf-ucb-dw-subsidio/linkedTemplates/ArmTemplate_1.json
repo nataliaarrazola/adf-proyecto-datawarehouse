@@ -639,7 +639,7 @@
 						]
 					},
 					{
-						"name": "Copy_SEGIP_copy1",
+						"name": "Copy_bja_controles_pediatricos",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
@@ -861,14 +861,2610 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "segip_personas_csv",
+								"referenceName": "bja_controles_pediatricos_csv",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "bronze_segip_personas",
+								"referenceName": "bronze_bja_controles_pediatricos",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Copy_bja_partos",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "insert",
+								"sqlWriterUseTableLock": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "ci",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "nombres",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "nombres",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "apellido_paterno",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "apellido_paterno",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "apellido_materno",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "apellido_materno",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "fecha_nacimiento",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "fecha_nacimiento",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "genero",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "genero",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "estado_civil",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "estado_civil",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_conyuge",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_conyuge",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "numero_hijos",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "numero_hijos",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_padre",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_padre",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_madre",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_madre",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "profesion",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "profesion",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "nivel_estudios",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "nivel_estudios",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "municipio_residencia",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "municipio_residencia",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "fecha_emision",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "fecha_emision",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "bja_partos_csv",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "bronze_bja_partos",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Copy_bja_pagos",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "insert",
+								"sqlWriterUseTableLock": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "ci",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "nombres",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "nombres",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "apellido_paterno",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "apellido_paterno",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "apellido_materno",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "apellido_materno",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "fecha_nacimiento",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "fecha_nacimiento",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "genero",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "genero",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "estado_civil",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "estado_civil",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_conyuge",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_conyuge",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "numero_hijos",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "numero_hijos",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_padre",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_padre",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_madre",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_madre",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "profesion",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "profesion",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "nivel_estudios",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "nivel_estudios",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "municipio_residencia",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "municipio_residencia",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "fecha_emision",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "fecha_emision",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "bja_pagos_csv",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "bronze_bja_pagos",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Copy_bja_inscripciones",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "insert",
+								"sqlWriterUseTableLock": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "ci",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "nombres",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "nombres",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "apellido_paterno",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "apellido_paterno",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "apellido_materno",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "apellido_materno",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "fecha_nacimiento",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "fecha_nacimiento",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "genero",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "genero",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "estado_civil",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "estado_civil",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_conyuge",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_conyuge",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "numero_hijos",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "numero_hijos",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_padre",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_padre",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_madre",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_madre",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "profesion",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "profesion",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "nivel_estudios",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "nivel_estudios",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "municipio_residencia",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "municipio_residencia",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "fecha_emision",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "fecha_emision",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "bja_inscripciones_csv",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "bronze_bja_inscripciones",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Copy_bja_controles_prenatales",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "insert",
+								"sqlWriterUseTableLock": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "ci",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "nombres",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "nombres",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "apellido_paterno",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "apellido_paterno",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "apellido_materno",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "apellido_materno",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "fecha_nacimiento",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "fecha_nacimiento",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "genero",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "genero",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "estado_civil",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "estado_civil",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_conyuge",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_conyuge",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "numero_hijos",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "numero_hijos",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_padre",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_padre",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_madre",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_madre",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "profesion",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "profesion",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "nivel_estudios",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "nivel_estudios",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "municipio_residencia",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "municipio_residencia",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "fecha_emision",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "fecha_emision",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "bja_controles_prenatales_csv",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "bronze_bja_controles_prenatales",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Copy_bja_establecimientos_salud",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "insert",
+								"sqlWriterUseTableLock": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "ci",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "nombres",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "nombres",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "apellido_paterno",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "apellido_paterno",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "apellido_materno",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "apellido_materno",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "fecha_nacimiento",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "fecha_nacimiento",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "genero",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "genero",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "estado_civil",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "estado_civil",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_conyuge",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_conyuge",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "numero_hijos",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "numero_hijos",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_padre",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_padre",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_madre",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_madre",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "profesion",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "profesion",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "nivel_estudios",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "nivel_estudios",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "municipio_residencia",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "municipio_residencia",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "fecha_emision",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "fecha_emision",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "establecimientos_salud_csv",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "bronze_establecimientos_salud",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Copy_SUP_catalogo_paquetes",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "insert",
+								"sqlWriterUseTableLock": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "ci",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "nombres",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "nombres",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "apellido_paterno",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "apellido_paterno",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "apellido_materno",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "apellido_materno",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "fecha_nacimiento",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "fecha_nacimiento",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "genero",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "genero",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "estado_civil",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "estado_civil",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_conyuge",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_conyuge",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "numero_hijos",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "numero_hijos",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_padre",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_padre",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_madre",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_madre",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "profesion",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "profesion",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "nivel_estudios",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "nivel_estudios",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "municipio_residencia",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "municipio_residencia",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "fecha_emision",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "fecha_emision",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "SUP_catalogo_paquetes_csv",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "bronze_sup_catalogo_paquetes",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Copy_SUP_boletas",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "insert",
+								"sqlWriterUseTableLock": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "ci",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "nombres",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "nombres",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "apellido_paterno",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "apellido_paterno",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "apellido_materno",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "apellido_materno",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "fecha_nacimiento",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "fecha_nacimiento",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "genero",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "genero",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "estado_civil",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "estado_civil",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_conyuge",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_conyuge",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "numero_hijos",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "numero_hijos",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_padre",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_padre",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_madre",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_madre",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "profesion",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "profesion",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "nivel_estudios",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "nivel_estudios",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "municipio_residencia",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "municipio_residencia",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "fecha_emision",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "fecha_emision",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "SUP_boletas_csv",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "bronze_sup_boletas",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Copy_sup_entregas",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "insert",
+								"sqlWriterUseTableLock": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "ci",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "nombres",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "nombres",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "apellido_paterno",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "apellido_paterno",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "apellido_materno",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "apellido_materno",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "fecha_nacimiento",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "fecha_nacimiento",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "genero",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "genero",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "estado_civil",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "estado_civil",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_conyuge",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_conyuge",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "numero_hijos",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "numero_hijos",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_padre",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_padre",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_madre",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_madre",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "profesion",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "profesion",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "nivel_estudios",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "nivel_estudios",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "municipio_residencia",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "municipio_residencia",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "fecha_emision",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "fecha_emision",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "SUP_entregas_csv",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "bronze_sup_entregas",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Copy_SUP_controles",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "insert",
+								"sqlWriterUseTableLock": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "ci",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "nombres",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "nombres",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "apellido_paterno",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "apellido_paterno",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "apellido_materno",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "apellido_materno",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "fecha_nacimiento",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "fecha_nacimiento",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "genero",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "genero",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "estado_civil",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "estado_civil",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_conyuge",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_conyuge",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "numero_hijos",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "numero_hijos",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_padre",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_padre",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_madre",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_madre",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "profesion",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "profesion",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "nivel_estudios",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "nivel_estudios",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "municipio_residencia",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "municipio_residencia",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "fecha_emision",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "fecha_emision",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "SUP_controles_csv",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "bronze_sup_controles",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Copy_SUP_incripciones",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "insert",
+								"sqlWriterUseTableLock": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "ci",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "nombres",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "nombres",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "apellido_paterno",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "apellido_paterno",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "apellido_materno",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "apellido_materno",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "fecha_nacimiento",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "fecha_nacimiento",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "genero",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "genero",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "estado_civil",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "estado_civil",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_conyuge",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_conyuge",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "numero_hijos",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "numero_hijos",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_padre",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_padre",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_madre",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_madre",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "profesion",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "profesion",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "nivel_estudios",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "nivel_estudios",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "municipio_residencia",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "municipio_residencia",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "fecha_emision",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "fecha_emision",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "SUP_inscripciones_csv",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "bronze_sup_inscripciones",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Copy_SUP_establecimientos",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "insert",
+								"sqlWriterUseTableLock": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "ci",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "nombres",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "nombres",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "apellido_paterno",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "apellido_paterno",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "apellido_materno",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "apellido_materno",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "fecha_nacimiento",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "fecha_nacimiento",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "genero",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "genero",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "estado_civil",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "estado_civil",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_conyuge",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_conyuge",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "numero_hijos",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "numero_hijos",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_padre",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_padre",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_madre",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_madre",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "profesion",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "profesion",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "nivel_estudios",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "nivel_estudios",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "municipio_residencia",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "municipio_residencia",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "fecha_emision",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "fecha_emision",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "SUP_establecimientos_csv",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "bronze_sup_establecimientos",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -881,7 +3477,14 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/bronze_segip_personas')]"
+				"[concat(variables('factoryId'), '/datasets/bronze_segip_personas')]",
+				"[concat(variables('factoryId'), '/datasets/bronze_establecimientos_salud')]",
+				"[concat(variables('factoryId'), '/datasets/bronze_sup_catalogo_paquetes')]",
+				"[concat(variables('factoryId'), '/datasets/bronze_sup_boletas')]",
+				"[concat(variables('factoryId'), '/datasets/bronze_sup_entregas')]",
+				"[concat(variables('factoryId'), '/datasets/bronze_sup_controles')]",
+				"[concat(variables('factoryId'), '/datasets/bronze_sup_inscripciones')]",
+				"[concat(variables('factoryId'), '/datasets/bronze_sup_establecimientos')]"
 			]
 		}
 	]
