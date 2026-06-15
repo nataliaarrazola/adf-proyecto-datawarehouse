@@ -1,0 +1,40 @@
+{
+	"name": "bronze_sup_catalogo_paquetes",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "dw_subsidio",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Bronze"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id_paquete",
+				"type": "varchar"
+			},
+			{
+				"name": "nombre_paquete",
+				"type": "varchar"
+			},
+			{
+				"name": "trimestre",
+				"type": "varchar"
+			},
+			{
+				"name": "componentes",
+				"type": "varchar"
+			},
+			{
+				"name": "valor_estimado_bs",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "bronze",
+			"table": "sup_catalogo_paquetes"
+		}
+	}
+}

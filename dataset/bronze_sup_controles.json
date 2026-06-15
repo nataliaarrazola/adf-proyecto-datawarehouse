@@ -1,0 +1,40 @@
+{
+	"name": "bronze_sup_controles",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "dw_subsidio",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Bronze"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id_control_sup",
+				"type": "varchar"
+			},
+			{
+				"name": "id_inscripcion_sup",
+				"type": "varchar"
+			},
+			{
+				"name": "fecha_visita",
+				"type": "varchar"
+			},
+			{
+				"name": "semanas_gestacion",
+				"type": "varchar"
+			},
+			{
+				"name": "id_establecimiento",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "bronze",
+			"table": "sup_controles"
+		}
+	}
+}

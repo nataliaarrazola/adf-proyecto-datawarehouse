@@ -1,0 +1,40 @@
+{
+	"name": "bronze_bja_controles_pediatricos",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "dw_subsidio",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Bronze"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id_control_ped",
+				"type": "varchar"
+			},
+			{
+				"name": "id_parto",
+				"type": "varchar"
+			},
+			{
+				"name": "num_control",
+				"type": "varchar"
+			},
+			{
+				"name": "fecha_control",
+				"type": "varchar"
+			},
+			{
+				"name": "estado_nutricional",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "bronze",
+			"table": "bja_controles_pediatricos"
+		}
+	}
+}

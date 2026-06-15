@@ -1,0 +1,44 @@
+{
+	"name": "bronze_sup_boletas",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "dw_subsidio",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Bronze"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id_boleta",
+				"type": "varchar"
+			},
+			{
+				"name": "id_control_sup",
+				"type": "varchar"
+			},
+			{
+				"name": "codigo_boleta",
+				"type": "varchar"
+			},
+			{
+				"name": "fecha_emision",
+				"type": "varchar"
+			},
+			{
+				"name": "trimestre_asignado",
+				"type": "varchar"
+			},
+			{
+				"name": "estado_boleta",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "bronze",
+			"table": "sup_boletas"
+		}
+	}
+}

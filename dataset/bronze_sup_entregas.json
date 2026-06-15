@@ -1,0 +1,44 @@
+{
+	"name": "bronze_sup_entregas",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "dw_subsidio",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Bronze"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id_entrega",
+				"type": "varchar"
+			},
+			{
+				"name": "id_boleta",
+				"type": "varchar"
+			},
+			{
+				"name": "fecha_entrega",
+				"type": "varchar"
+			},
+			{
+				"name": "id_paquete",
+				"type": "varchar"
+			},
+			{
+				"name": "numero_lote_sedem",
+				"type": "varchar"
+			},
+			{
+				"name": "glosa_conformidad",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "bronze",
+			"table": "sup_entregas"
+		}
+	}
+}

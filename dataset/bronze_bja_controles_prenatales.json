@@ -1,0 +1,40 @@
+{
+	"name": "bronze_bja_controles_prenatales",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "dw_subsidio",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Bronze"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id_control",
+				"type": "varchar"
+			},
+			{
+				"name": "id_inscripcion",
+				"type": "varchar"
+			},
+			{
+				"name": "num_control",
+				"type": "varchar"
+			},
+			{
+				"name": "fecha_control",
+				"type": "varchar"
+			},
+			{
+				"name": "medico_responsable",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "bronze",
+			"table": "bja_controles_prenatales"
+		}
+	}
+}

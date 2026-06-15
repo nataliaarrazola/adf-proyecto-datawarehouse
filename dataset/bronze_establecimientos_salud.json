@@ -1,0 +1,40 @@
+{
+	"name": "bronze_establecimientos_salud",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "dw_subsidio",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Bronze"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id_establecimiento",
+				"type": "varchar"
+			},
+			{
+				"name": "nombre_establecimiento",
+				"type": "varchar"
+			},
+			{
+				"name": "municipio",
+				"type": "varchar"
+			},
+			{
+				"name": "departamento",
+				"type": "varchar"
+			},
+			{
+				"name": "nivel",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "bronze",
+			"table": "establecimientos_salud"
+		}
+	}
+}

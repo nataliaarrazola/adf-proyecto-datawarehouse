@@ -1,0 +1,40 @@
+{
+	"name": "bronze_bja_partos",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "dw_subsidio",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Bronze"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id_parto",
+				"type": "varchar"
+			},
+			{
+				"name": "id_inscripcion",
+				"type": "varchar"
+			},
+			{
+				"name": "fecha_parto",
+				"type": "varchar"
+			},
+			{
+				"name": "tipo_parto",
+				"type": "varchar"
+			},
+			{
+				"name": "ci_recien_nacido",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "bronze",
+			"table": "bja_partos"
+		}
+	}
+}

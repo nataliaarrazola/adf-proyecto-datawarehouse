@@ -1,0 +1,48 @@
+{
+	"name": "bronze_bja_pagos",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "dw_subsidio",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Bronze"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id_pago",
+				"type": "varchar"
+			},
+			{
+				"name": "id_inscripcion",
+				"type": "varchar"
+			},
+			{
+				"name": "id_control",
+				"type": "varchar"
+			},
+			{
+				"name": "id_control_ped",
+				"type": "varchar"
+			},
+			{
+				"name": "monto",
+				"type": "varchar"
+			},
+			{
+				"name": "fecha_emision",
+				"type": "varchar"
+			},
+			{
+				"name": "estado_pago",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "bronze",
+			"table": "bja_pagos"
+		}
+	}
+}

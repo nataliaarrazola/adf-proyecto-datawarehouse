@@ -1,0 +1,36 @@
+{
+	"name": "bronze_sup_inscripciones",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "dw_subsidio",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Bronze"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id_inscripcion_sup",
+				"type": "varchar"
+			},
+			{
+				"name": "ci_beneficiaria",
+				"type": "varchar"
+			},
+			{
+				"name": "fecha_registro",
+				"type": "varchar"
+			},
+			{
+				"name": "estado_gestacion",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "bronze",
+			"table": "sup_inscripciones"
+		}
+	}
+}
