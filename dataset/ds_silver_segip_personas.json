@@ -1,0 +1,81 @@
+{
+	"name": "ds_silver_segip_personas",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "dw_subsidio",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Silver"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ci",
+				"type": "varchar"
+			},
+			{
+				"name": "nombres",
+				"type": "varchar"
+			},
+			{
+				"name": "apellido_paterno",
+				"type": "varchar"
+			},
+			{
+				"name": "apellido_materno",
+				"type": "varchar"
+			},
+			{
+				"name": "fecha_nacimiento",
+				"type": "date"
+			},
+			{
+				"name": "genero",
+				"type": "varchar"
+			},
+			{
+				"name": "estado_civil",
+				"type": "varchar"
+			},
+			{
+				"name": "ci_conyuge",
+				"type": "varchar"
+			},
+			{
+				"name": "numero_hijos",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ci_padre",
+				"type": "varchar"
+			},
+			{
+				"name": "ci_madre",
+				"type": "varchar"
+			},
+			{
+				"name": "profesion",
+				"type": "varchar"
+			},
+			{
+				"name": "nivel_estudios",
+				"type": "varchar"
+			},
+			{
+				"name": "municipio_residencia",
+				"type": "varchar"
+			},
+			{
+				"name": "fecha_emision",
+				"type": "date"
+			}
+		],
+		"typeProperties": {
+			"schema": "silver",
+			"table": "segip_personas"
+		}
+	}
+}

@@ -1,0 +1,118 @@
+{
+	"name": "df_silver_establecimientos_salud",
+	"properties": {
+		"folder": {
+			"name": "Silver"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "bronze_establecimientos_salud",
+						"type": "DatasetReference"
+					},
+					"name": "BronzeEstablecimientosSalud"
+				},
+				{
+					"dataset": {
+						"referenceName": "bronze_sup_establecimientos",
+						"type": "DatasetReference"
+					},
+					"name": "BronzeSupEstablecimientos"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ds_silver_establecimientos_salud",
+						"type": "DatasetReference"
+					},
+					"name": "sinkEstablecimiento"
+				}
+			],
+			"transformations": [
+				{
+					"name": "union1"
+				},
+				{
+					"name": "LimpiezaEstablecimientos"
+				},
+				{
+					"name": "select1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          establecimiento_id as integer,",
+				"          codigo_snis as string,",
+				"          nombre as string,",
+				"          tipo as string,",
+				"          nivel_atencion as string,",
+				"          municipio as string,",
+				"          departamento as string,",
+				"          red_salud as string,",
+				"          estado as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> BronzeEstablecimientosSalud",
+				"source(output(",
+				"          establecimiento_id as integer,",
+				"          codigo_snis as string,",
+				"          nombre as string,",
+				"          tipo as string,",
+				"          nivel_atencion as string,",
+				"          municipio as string,",
+				"          departamento as string,",
+				"          red_salud as string,",
+				"          estado as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> BronzeSupEstablecimientos",
+				"BronzeEstablecimientosSalud, BronzeSupEstablecimientos union(byName: true)~> union1",
+				"union1 derive(nombre = upper(trim(nombre)),",
+				"          tipo = upper(trim(tipo)),",
+				"          municipio = upper(trim(municipio)),",
+				"          departamento = upper(trim(departamento))) ~> LimpiezaEstablecimientos",
+				"LimpiezaEstablecimientos select(mapColumn(",
+				"          establecimiento_id,",
+				"          codigo_snis,",
+				"          nombre,",
+				"          tipo,",
+				"          nivel_atencion,",
+				"          municipio,",
+				"          departamento,",
+				"          red_salud,",
+				"          estado",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          establecimiento_id as integer,",
+				"          codigo_snis as string,",
+				"          nombre as string,",
+				"          tipo as string,",
+				"          nivel_atencion as string,",
+				"          municipio as string,",
+				"          departamento as string,",
+				"          red_salud as string,",
+				"          estado as string",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sinkEstablecimiento"
+			]
+		}
+	}
+}

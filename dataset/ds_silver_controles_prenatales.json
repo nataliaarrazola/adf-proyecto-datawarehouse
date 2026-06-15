@@ -1,0 +1,66 @@
+{
+	"name": "ds_silver_controles_prenatales",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "dw_subsidio",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Silver"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "control_prenatal_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ci_beneficiaria",
+				"type": "varchar"
+			},
+			{
+				"name": "establecimiento_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "nro_control",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "fecha_control",
+				"type": "date"
+			},
+			{
+				"name": "semana_gestacion",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "peso_madre_kg",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "presion_arterial",
+				"type": "varchar"
+			},
+			{
+				"name": "resultado",
+				"type": "varchar"
+			},
+			{
+				"name": "sistema_origen",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "silver",
+			"table": "controles_prenatales"
+		}
+	}
+}
