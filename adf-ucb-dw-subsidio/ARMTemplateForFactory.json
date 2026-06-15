@@ -931,6 +931,1128 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/datalake_Subsidio')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/bronze_bja_controles_pediatricos')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "dw_subsidio",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Bronze"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "id_control_ped",
+						"type": "varchar"
+					},
+					{
+						"name": "id_parto",
+						"type": "varchar"
+					},
+					{
+						"name": "num_control",
+						"type": "varchar"
+					},
+					{
+						"name": "fecha_control",
+						"type": "varchar"
+					},
+					{
+						"name": "estado_nutricional",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "bronze",
+					"table": "bja_controles_pediatricos"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/dw_subsidio')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/bronze_bja_controles_prenatales')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "dw_subsidio",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Bronze"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "id_control",
+						"type": "varchar"
+					},
+					{
+						"name": "id_inscripcion",
+						"type": "varchar"
+					},
+					{
+						"name": "num_control",
+						"type": "varchar"
+					},
+					{
+						"name": "fecha_control",
+						"type": "varchar"
+					},
+					{
+						"name": "medico_responsable",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "bronze",
+					"table": "bja_controles_prenatales"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/dw_subsidio')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/bronze_bja_inscripciones')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "dw_subsidio",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Bronze"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "id_inscripcion",
+						"type": "varchar"
+					},
+					{
+						"name": "ci_madre",
+						"type": "varchar"
+					},
+					{
+						"name": "fecha_inscripcion",
+						"type": "varchar"
+					},
+					{
+						"name": "estado",
+						"type": "varchar"
+					},
+					{
+						"name": "establecimiento_id",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "bronze",
+					"table": "bja_inscripciones"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/dw_subsidio')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/bronze_bja_pagos')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "dw_subsidio",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Bronze"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "id_pago",
+						"type": "varchar"
+					},
+					{
+						"name": "id_inscripcion",
+						"type": "varchar"
+					},
+					{
+						"name": "id_control",
+						"type": "varchar"
+					},
+					{
+						"name": "id_control_ped",
+						"type": "varchar"
+					},
+					{
+						"name": "monto",
+						"type": "varchar"
+					},
+					{
+						"name": "fecha_emision",
+						"type": "varchar"
+					},
+					{
+						"name": "estado_pago",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "bronze",
+					"table": "bja_pagos"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/dw_subsidio')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/bronze_bja_partos')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "dw_subsidio",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Bronze"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "id_parto",
+						"type": "varchar"
+					},
+					{
+						"name": "id_inscripcion",
+						"type": "varchar"
+					},
+					{
+						"name": "fecha_parto",
+						"type": "varchar"
+					},
+					{
+						"name": "tipo_parto",
+						"type": "varchar"
+					},
+					{
+						"name": "ci_recien_nacido",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "bronze",
+					"table": "bja_partos"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/dw_subsidio')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/bronze_establecimientos_salud')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "dw_subsidio",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Bronze"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "id_establecimiento",
+						"type": "varchar"
+					},
+					{
+						"name": "nombre_establecimiento",
+						"type": "varchar"
+					},
+					{
+						"name": "municipio",
+						"type": "varchar"
+					},
+					{
+						"name": "departamento",
+						"type": "varchar"
+					},
+					{
+						"name": "nivel",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "bronze",
+					"table": "establecimientos_salud"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/dw_subsidio')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/bronze_segip_personas')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "dw_subsidio",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Bronze"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "ci",
+						"type": "varchar"
+					},
+					{
+						"name": "nombres",
+						"type": "varchar"
+					},
+					{
+						"name": "apellido_paterno",
+						"type": "varchar"
+					},
+					{
+						"name": "apellido_materno",
+						"type": "varchar"
+					},
+					{
+						"name": "fecha_nacimiento",
+						"type": "varchar"
+					},
+					{
+						"name": "genero",
+						"type": "varchar"
+					},
+					{
+						"name": "estado_civil",
+						"type": "varchar"
+					},
+					{
+						"name": "ci_conyuge",
+						"type": "varchar"
+					},
+					{
+						"name": "numero_hijos",
+						"type": "varchar"
+					},
+					{
+						"name": "ci_padre",
+						"type": "varchar"
+					},
+					{
+						"name": "ci_madre",
+						"type": "varchar"
+					},
+					{
+						"name": "profesion",
+						"type": "varchar"
+					},
+					{
+						"name": "nivel_estudios",
+						"type": "varchar"
+					},
+					{
+						"name": "municipio_residencia",
+						"type": "varchar"
+					},
+					{
+						"name": "fecha_emision",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "bronze",
+					"table": "segip_personas"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/dw_subsidio')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/bronze_sup_boletas')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "dw_subsidio",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Bronze"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "id_boleta",
+						"type": "varchar"
+					},
+					{
+						"name": "id_control_sup",
+						"type": "varchar"
+					},
+					{
+						"name": "codigo_boleta",
+						"type": "varchar"
+					},
+					{
+						"name": "fecha_emision",
+						"type": "varchar"
+					},
+					{
+						"name": "trimestre_asignado",
+						"type": "varchar"
+					},
+					{
+						"name": "estado_boleta",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "bronze",
+					"table": "sup_boletas"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/dw_subsidio')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/bronze_sup_catalogo_paquetes')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "dw_subsidio",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Bronze"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "id_paquete",
+						"type": "varchar"
+					},
+					{
+						"name": "nombre_paquete",
+						"type": "varchar"
+					},
+					{
+						"name": "trimestre",
+						"type": "varchar"
+					},
+					{
+						"name": "componentes",
+						"type": "varchar"
+					},
+					{
+						"name": "valor_estimado_bs",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "bronze",
+					"table": "sup_catalogo_paquetes"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/dw_subsidio')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/bronze_sup_controles')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "dw_subsidio",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Bronze"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "id_control_sup",
+						"type": "varchar"
+					},
+					{
+						"name": "id_inscripcion_sup",
+						"type": "varchar"
+					},
+					{
+						"name": "fecha_visita",
+						"type": "varchar"
+					},
+					{
+						"name": "semanas_gestacion",
+						"type": "varchar"
+					},
+					{
+						"name": "id_establecimiento",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "bronze",
+					"table": "sup_controles"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/dw_subsidio')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/bronze_sup_entregas')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "dw_subsidio",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Bronze"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "id_entrega",
+						"type": "varchar"
+					},
+					{
+						"name": "id_boleta",
+						"type": "varchar"
+					},
+					{
+						"name": "fecha_entrega",
+						"type": "varchar"
+					},
+					{
+						"name": "id_paquete",
+						"type": "varchar"
+					},
+					{
+						"name": "numero_lote_sedem",
+						"type": "varchar"
+					},
+					{
+						"name": "glosa_conformidad",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "bronze",
+					"table": "sup_entregas"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/dw_subsidio')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/bronze_sup_establecimientos')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "dw_subsidio",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Bronze"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "id_establecimiento_sup",
+						"type": "varchar"
+					},
+					{
+						"name": "nombre",
+						"type": "varchar"
+					},
+					{
+						"name": "red_salud",
+						"type": "varchar"
+					},
+					{
+						"name": "municipio",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "bronze",
+					"table": "sup_establecimientos"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/dw_subsidio')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/bronze_sup_inscripciones')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "dw_subsidio",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Bronze"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "id_inscripcion_sup",
+						"type": "varchar"
+					},
+					{
+						"name": "ci_beneficiaria",
+						"type": "varchar"
+					},
+					{
+						"name": "fecha_registro",
+						"type": "varchar"
+					},
+					{
+						"name": "estado_gestacion",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "bronze",
+					"table": "sup_inscripciones"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/dw_subsidio')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Pipeline_Ingesta_Bronze')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy_SEGIP",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "insert",
+								"sqlWriterUseTableLock": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "ci",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "nombres",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "nombres",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "apellido_paterno",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "apellido_paterno",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "apellido_materno",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "apellido_materno",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "fecha_nacimiento",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "fecha_nacimiento",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "genero",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "genero",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "estado_civil",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "estado_civil",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_conyuge",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_conyuge",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "numero_hijos",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "numero_hijos",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_padre",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_padre",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_madre",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_madre",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "profesion",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "profesion",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "nivel_estudios",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "nivel_estudios",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "municipio_residencia",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "municipio_residencia",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "fecha_emision",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "fecha_emision",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "segip_personas_csv",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "bronze_segip_personas",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Copy_SEGIP_copy1",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "insert",
+								"sqlWriterUseTableLock": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "ci",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "nombres",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "nombres",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "apellido_paterno",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "apellido_paterno",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "apellido_materno",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "apellido_materno",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "fecha_nacimiento",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "fecha_nacimiento",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "genero",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "genero",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "estado_civil",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "estado_civil",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_conyuge",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_conyuge",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "numero_hijos",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "numero_hijos",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_padre",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_padre",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "ci_madre",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ci_madre",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "profesion",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "profesion",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "nivel_estudios",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "nivel_estudios",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "municipio_residencia",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "municipio_residencia",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "fecha_emision",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "fecha_emision",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "segip_personas_csv",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "bronze_segip_personas",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/segip_personas_csv')]",
+				"[concat(variables('factoryId'), '/datasets/bronze_segip_personas')]"
+			]
 		}
 	]
 }
