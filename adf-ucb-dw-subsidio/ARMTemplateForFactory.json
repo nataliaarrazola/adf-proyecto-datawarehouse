@@ -1725,8 +1725,10 @@
 							},
 							"sink": {
 								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE bronze.segip_personas;",
 								"writeBehavior": "insert",
-								"sqlWriterUseTableLock": false
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
 							"translator": {
@@ -1961,8 +1963,10 @@
 							},
 							"sink": {
 								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE bronze.bja_controles_pediatricos;",
 								"writeBehavior": "insert",
-								"sqlWriterUseTableLock": false
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
 							"translator": {
@@ -2137,8 +2141,10 @@
 							},
 							"sink": {
 								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE bronze.bja_partos;",
 								"writeBehavior": "insert",
-								"sqlWriterUseTableLock": false
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
 							"translator": {
@@ -2289,8 +2295,10 @@
 							},
 							"sink": {
 								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE bronze.bja_pagos;",
 								"writeBehavior": "insert",
-								"sqlWriterUseTableLock": false
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
 							"translator": {
@@ -2441,8 +2449,10 @@
 							},
 							"sink": {
 								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE bronze.bja_inscripciones;",
 								"writeBehavior": "insert",
-								"sqlWriterUseTableLock": false
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
 							"translator": {
@@ -2569,8 +2579,10 @@
 							},
 							"sink": {
 								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE bronze.bja_controles_prenatales;",
 								"writeBehavior": "insert",
-								"sqlWriterUseTableLock": false
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
 							"translator": {
@@ -2733,8 +2745,10 @@
 							},
 							"sink": {
 								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE bronze.establecimientos_salud;",
 								"writeBehavior": "insert",
-								"sqlWriterUseTableLock": false
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
 							"translator": {
@@ -2897,8 +2911,10 @@
 							},
 							"sink": {
 								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE bronze.sup_catalogo_paquetes;",
 								"writeBehavior": "insert",
-								"sqlWriterUseTableLock": false
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
 							"translator": {
@@ -3013,8 +3029,10 @@
 							},
 							"sink": {
 								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE bronze.sup_boletas;",
 								"writeBehavior": "insert",
-								"sqlWriterUseTableLock": false
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
 							"translator": {
@@ -3141,8 +3159,10 @@
 							},
 							"sink": {
 								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE bronze.sup_entregas;",
 								"writeBehavior": "insert",
-								"sqlWriterUseTableLock": false
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
 							"translator": {
@@ -3317,8 +3337,10 @@
 							},
 							"sink": {
 								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE bronze.sup_controles;",
 								"writeBehavior": "insert",
-								"sqlWriterUseTableLock": false
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
 							"translator": {
@@ -3469,8 +3491,10 @@
 							},
 							"sink": {
 								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE bronze.sup_inscripciones;",
 								"writeBehavior": "insert",
-								"sqlWriterUseTableLock": false
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
 							"translator": {
@@ -3597,8 +3621,10 @@
 							},
 							"sink": {
 								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE bronze.sup_establecimientos;",
 								"writeBehavior": "insert",
-								"sqlWriterUseTableLock": false
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
 							"translator": {
@@ -3768,6 +3794,773 @@
 				"[concat(variables('factoryId'), '/datasets/bronze_sup_inscripciones')]",
 				"[concat(variables('factoryId'), '/datasets/SUP_establecimientos_csv')]",
 				"[concat(variables('factoryId'), '/datasets/bronze_sup_establecimientos')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ds_silver_bja_controles_pediatricos')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "dw_subsidio",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Silver"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "control_pediatrico_id",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ci_nino",
+						"type": "varchar"
+					},
+					{
+						"name": "ci_madre",
+						"type": "varchar"
+					},
+					{
+						"name": "establecimiento_id",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "nro_control",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "fecha_control",
+						"type": "date"
+					},
+					{
+						"name": "peso_nino_kg",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "talla_nino_cm",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "vacuna_aplicada",
+						"type": "varchar"
+					},
+					{
+						"name": "resultado",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "silver",
+					"table": "bja_controles_pediatricos"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/dw_subsidio')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ds_silver_segip_personas')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "dw_subsidio",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Silver"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "ci",
+						"type": "varchar"
+					},
+					{
+						"name": "nombres",
+						"type": "varchar"
+					},
+					{
+						"name": "apellido_paterno",
+						"type": "varchar"
+					},
+					{
+						"name": "apellido_materno",
+						"type": "varchar"
+					},
+					{
+						"name": "fecha_nacimiento",
+						"type": "date"
+					},
+					{
+						"name": "genero",
+						"type": "varchar"
+					},
+					{
+						"name": "estado_civil",
+						"type": "varchar"
+					},
+					{
+						"name": "ci_conyuge",
+						"type": "varchar"
+					},
+					{
+						"name": "numero_hijos",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ci_padre",
+						"type": "varchar"
+					},
+					{
+						"name": "ci_madre",
+						"type": "varchar"
+					},
+					{
+						"name": "profesion",
+						"type": "varchar"
+					},
+					{
+						"name": "nivel_estudios",
+						"type": "varchar"
+					},
+					{
+						"name": "municipio_residencia",
+						"type": "varchar"
+					},
+					{
+						"name": "fecha_emision",
+						"type": "date"
+					}
+				],
+				"typeProperties": {
+					"schema": "silver",
+					"table": "segip_personas"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/dw_subsidio')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ds_silver_establecimientos_salud')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "dw_subsidio",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Silver"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "establecimiento_id",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "codigo_snis",
+						"type": "varchar"
+					},
+					{
+						"name": "nombre",
+						"type": "varchar"
+					},
+					{
+						"name": "tipo",
+						"type": "varchar"
+					},
+					{
+						"name": "nivel_atencion",
+						"type": "varchar"
+					},
+					{
+						"name": "municipio",
+						"type": "varchar"
+					},
+					{
+						"name": "departamento",
+						"type": "varchar"
+					},
+					{
+						"name": "red_salud",
+						"type": "varchar"
+					},
+					{
+						"name": "estado",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "silver",
+					"table": "establecimientos_salud"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/dw_subsidio')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ds_silver_sup_catalogo_paquetes')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "dw_subsidio",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Silver"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "paquete_id",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "nombre",
+						"type": "varchar"
+					},
+					{
+						"name": "contenido",
+						"type": "varchar"
+					},
+					{
+						"name": "peso_estandar_kg",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "costo_estimado_bs",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					}
+				],
+				"typeProperties": {
+					"schema": "silver",
+					"table": "sup_catalogo_paquetes"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/dw_subsidio')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ds_silver_inscripciones_proyectos')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "dw_subsidio",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Silver"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "inscripcion_id",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ci_beneficiaria",
+						"type": "varchar"
+					},
+					{
+						"name": "establecimiento_id",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "fecha_inscripcion",
+						"type": "date"
+					},
+					{
+						"name": "semana_gestacion",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "estado",
+						"type": "varchar"
+					},
+					{
+						"name": "sistema_origen",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "silver",
+					"table": "inscripciones_proyectos"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/dw_subsidio')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ds_silver_controles_prenatales')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "dw_subsidio",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Silver"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "control_prenatal_id",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ci_beneficiaria",
+						"type": "varchar"
+					},
+					{
+						"name": "establecimiento_id",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "nro_control",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "fecha_control",
+						"type": "date"
+					},
+					{
+						"name": "semana_gestacion",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "peso_madre_kg",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "presion_arterial",
+						"type": "varchar"
+					},
+					{
+						"name": "resultado",
+						"type": "varchar"
+					},
+					{
+						"name": "sistema_origen",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "silver",
+					"table": "controles_prenatales"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/dw_subsidio')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ds_silver_bja_partos')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "dw_subsidio",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Silver"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "parto_id",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ci_madre",
+						"type": "varchar"
+					},
+					{
+						"name": "ci_recien_nacido",
+						"type": "varchar"
+					},
+					{
+						"name": "establecimiento_id",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "fecha_parto",
+						"type": "date"
+					},
+					{
+						"name": "tipo_parto",
+						"type": "varchar"
+					},
+					{
+						"name": "peso_nacimiento_kg",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "talla_nacimiento_cm",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					}
+				],
+				"typeProperties": {
+					"schema": "silver",
+					"table": "bja_partos"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/dw_subsidio')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ds_silver_bja_pagos')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "dw_subsidio",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Silver"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "pago_id",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ci_beneficiaria",
+						"type": "varchar"
+					},
+					{
+						"name": "concepto_pago",
+						"type": "varchar"
+					},
+					{
+						"name": "monto_bs",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "fecha_pago",
+						"type": "date"
+					},
+					{
+						"name": "estado_pago",
+						"type": "varchar"
+					},
+					{
+						"name": "canal_pago",
+						"type": "varchar"
+					},
+					{
+						"name": "nro_comprobante",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "silver",
+					"table": "bja_pagos"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/dw_subsidio')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ds_silver_sup_boletas')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "dw_subsidio",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Silver"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "boleta_id",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "control_id",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ci_beneficiaria",
+						"type": "varchar"
+					},
+					{
+						"name": "nro_boleta",
+						"type": "varchar"
+					},
+					{
+						"name": "fecha_emision",
+						"type": "date"
+					},
+					{
+						"name": "estado",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "silver",
+					"table": "sup_boletas"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/dw_subsidio')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ds_silver_sup_entregas')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "dw_subsidio",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Silver"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "entrega_id",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "boleta_id",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ci_beneficiaria",
+						"type": "varchar"
+					},
+					{
+						"name": "establecimiento_id",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "paquete_id",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "paquete_nombre",
+						"type": "varchar"
+					},
+					{
+						"name": "fecha_entrega",
+						"type": "date"
+					},
+					{
+						"name": "lote_produccion",
+						"type": "varchar"
+					},
+					{
+						"name": "peso_paquete_kg",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "fecha_proxima_entrega",
+						"type": "date"
+					}
+				],
+				"typeProperties": {
+					"schema": "silver",
+					"table": "sup_entregas"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/dw_subsidio')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/df_silver_establecimientos_salud')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"folder": {
+					"name": "Silver"
+				},
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "bronze_establecimientos_salud",
+								"type": "DatasetReference"
+							},
+							"name": "BronzeEstablecimientosSalud"
+						},
+						{
+							"dataset": {
+								"referenceName": "bronze_sup_establecimientos",
+								"type": "DatasetReference"
+							},
+							"name": "BronzeSupEstablecimientos"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "ds_silver_establecimientos_salud",
+								"type": "DatasetReference"
+							},
+							"name": "sinkEstablecimiento"
+						}
+					],
+					"transformations": [
+						{
+							"name": "union1"
+						},
+						{
+							"name": "LimpiezaEstablecimientos"
+						},
+						{
+							"name": "select1"
+						}
+					],
+					"scriptLines": [
+						"source(output(",
+						"          establecimiento_id as integer,",
+						"          codigo_snis as string,",
+						"          nombre as string,",
+						"          tipo as string,",
+						"          nivel_atencion as string,",
+						"          municipio as string,",
+						"          departamento as string,",
+						"          red_salud as string,",
+						"          estado as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     isolationLevel: 'READ_UNCOMMITTED',",
+						"     format: 'table') ~> BronzeEstablecimientosSalud",
+						"source(output(",
+						"          establecimiento_id as integer,",
+						"          codigo_snis as string,",
+						"          nombre as string,",
+						"          tipo as string,",
+						"          nivel_atencion as string,",
+						"          municipio as string,",
+						"          departamento as string,",
+						"          red_salud as string,",
+						"          estado as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     isolationLevel: 'READ_UNCOMMITTED',",
+						"     format: 'table') ~> BronzeSupEstablecimientos",
+						"BronzeEstablecimientosSalud, BronzeSupEstablecimientos union(byName: true)~> union1",
+						"union1 derive(nombre = upper(trim(nombre)),",
+						"          tipo = upper(trim(tipo)),",
+						"          municipio = upper(trim(municipio)),",
+						"          departamento = upper(trim(departamento))) ~> LimpiezaEstablecimientos",
+						"LimpiezaEstablecimientos select(mapColumn(",
+						"          establecimiento_id,",
+						"          codigo_snis,",
+						"          nombre,",
+						"          tipo,",
+						"          nivel_atencion,",
+						"          municipio,",
+						"          departamento,",
+						"          red_salud,",
+						"          estado",
+						"     ),",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> select1",
+						"select1 sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     input(",
+						"          establecimiento_id as integer,",
+						"          codigo_snis as string,",
+						"          nombre as string,",
+						"          tipo as string,",
+						"          nivel_atencion as string,",
+						"          municipio as string,",
+						"          departamento as string,",
+						"          red_salud as string,",
+						"          estado as string",
+						"     ),",
+						"     deletable:false,",
+						"     insertable:true,",
+						"     updateable:false,",
+						"     upsertable:false,",
+						"     format: 'table',",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     errorHandlingOption: 'stopOnFirstError') ~> sinkEstablecimiento"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/bronze_establecimientos_salud')]",
+				"[concat(variables('factoryId'), '/datasets/bronze_sup_establecimientos')]",
+				"[concat(variables('factoryId'), '/datasets/ds_silver_establecimientos_salud')]"
 			]
 		}
 	]
