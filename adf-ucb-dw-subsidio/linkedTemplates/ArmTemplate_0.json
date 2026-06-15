@@ -948,15 +948,23 @@
 				"type": "AzureSqlTable",
 				"schema": [
 					{
-						"name": "id_control_ped",
+						"name": "control_pediatrico_id",
 						"type": "varchar"
 					},
 					{
-						"name": "id_parto",
+						"name": "ci_nino",
 						"type": "varchar"
 					},
 					{
-						"name": "num_control",
+						"name": "ci_madre",
+						"type": "varchar"
+					},
+					{
+						"name": "establecimiento_id",
+						"type": "varchar"
+					},
+					{
+						"name": "nro_control",
 						"type": "varchar"
 					},
 					{
@@ -964,7 +972,19 @@
 						"type": "varchar"
 					},
 					{
-						"name": "estado_nutricional",
+						"name": "peso_nino_kg",
+						"type": "varchar"
+					},
+					{
+						"name": "talla_nino_cm",
+						"type": "varchar"
+					},
+					{
+						"name": "vacuna_aplicada",
+						"type": "varchar"
+					},
+					{
+						"name": "resultado",
 						"type": "varchar"
 					}
 				],
@@ -993,15 +1013,19 @@
 				"type": "AzureSqlTable",
 				"schema": [
 					{
-						"name": "id_control",
+						"name": "control_prenatal_id",
 						"type": "varchar"
 					},
 					{
-						"name": "id_inscripcion",
+						"name": "ci_beneficiaria",
 						"type": "varchar"
 					},
 					{
-						"name": "num_control",
+						"name": "establecimiento_id",
+						"type": "varchar"
+					},
+					{
+						"name": "nro_control",
 						"type": "varchar"
 					},
 					{
@@ -1009,7 +1033,19 @@
 						"type": "varchar"
 					},
 					{
-						"name": "medico_responsable",
+						"name": "semana_gestacion",
+						"type": "varchar"
+					},
+					{
+						"name": "peso_madre_kg",
+						"type": "varchar"
+					},
+					{
+						"name": "presion_arterial",
+						"type": "varchar"
+					},
+					{
+						"name": "resultado",
 						"type": "varchar"
 					}
 				],
@@ -1038,11 +1074,15 @@
 				"type": "AzureSqlTable",
 				"schema": [
 					{
-						"name": "id_inscripcion",
+						"name": "inscripcion_id",
 						"type": "varchar"
 					},
 					{
-						"name": "ci_madre",
+						"name": "ci_beneficiaria",
+						"type": "varchar"
+					},
+					{
+						"name": "establecimiento_id",
 						"type": "varchar"
 					},
 					{
@@ -1050,11 +1090,11 @@
 						"type": "varchar"
 					},
 					{
-						"name": "estado",
+						"name": "semana_gestacion",
 						"type": "varchar"
 					},
 					{
-						"name": "establecimiento_id",
+						"name": "estado",
 						"type": "varchar"
 					}
 				],
@@ -1083,31 +1123,35 @@
 				"type": "AzureSqlTable",
 				"schema": [
 					{
-						"name": "id_pago",
+						"name": "pago_id",
 						"type": "varchar"
 					},
 					{
-						"name": "id_inscripcion",
+						"name": "ci_beneficiaria",
 						"type": "varchar"
 					},
 					{
-						"name": "id_control",
+						"name": "concepto_pago",
 						"type": "varchar"
 					},
 					{
-						"name": "id_control_ped",
+						"name": "monto_bs",
 						"type": "varchar"
 					},
 					{
-						"name": "monto",
-						"type": "varchar"
-					},
-					{
-						"name": "fecha_emision",
+						"name": "fecha_pago",
 						"type": "varchar"
 					},
 					{
 						"name": "estado_pago",
+						"type": "varchar"
+					},
+					{
+						"name": "canal_pago",
+						"type": "varchar"
+					},
+					{
+						"name": "nro_comprobante",
 						"type": "varchar"
 					}
 				],
@@ -1136,11 +1180,19 @@
 				"type": "AzureSqlTable",
 				"schema": [
 					{
-						"name": "id_parto",
+						"name": "parto_id",
 						"type": "varchar"
 					},
 					{
-						"name": "id_inscripcion",
+						"name": "ci_madre",
+						"type": "varchar"
+					},
+					{
+						"name": "ci_recien_nacido",
+						"type": "varchar"
+					},
+					{
+						"name": "establecimiento_id",
 						"type": "varchar"
 					},
 					{
@@ -1152,7 +1204,11 @@
 						"type": "varchar"
 					},
 					{
-						"name": "ci_recien_nacido",
+						"name": "peso_nacimiento_kg",
+						"type": "varchar"
+					},
+					{
+						"name": "talla_nacimiento_cm",
 						"type": "varchar"
 					}
 				],
