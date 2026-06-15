@@ -12,31 +12,35 @@
 		"type": "AzureSqlTable",
 		"schema": [
 			{
-				"name": "id_pago",
+				"name": "pago_id",
 				"type": "varchar"
 			},
 			{
-				"name": "id_inscripcion",
+				"name": "ci_beneficiaria",
 				"type": "varchar"
 			},
 			{
-				"name": "id_control",
+				"name": "concepto_pago",
 				"type": "varchar"
 			},
 			{
-				"name": "id_control_ped",
+				"name": "monto_bs",
 				"type": "varchar"
 			},
 			{
-				"name": "monto",
-				"type": "varchar"
-			},
-			{
-				"name": "fecha_emision",
+				"name": "fecha_pago",
 				"type": "varchar"
 			},
 			{
 				"name": "estado_pago",
+				"type": "varchar"
+			},
+			{
+				"name": "canal_pago",
+				"type": "varchar"
+			},
+			{
+				"name": "nro_comprobante",
 				"type": "varchar"
 			}
 		],

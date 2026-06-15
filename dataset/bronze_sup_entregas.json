@@ -12,11 +12,27 @@
 		"type": "AzureSqlTable",
 		"schema": [
 			{
-				"name": "id_entrega",
+				"name": "entrega_id",
 				"type": "varchar"
 			},
 			{
-				"name": "id_boleta",
+				"name": "boleta_id",
+				"type": "varchar"
+			},
+			{
+				"name": "ci_beneficiaria",
+				"type": "varchar"
+			},
+			{
+				"name": "establecimiento_id",
+				"type": "varchar"
+			},
+			{
+				"name": "paquete_id",
+				"type": "varchar"
+			},
+			{
+				"name": "paquete_nombre",
 				"type": "varchar"
 			},
 			{
@@ -24,15 +40,15 @@
 				"type": "varchar"
 			},
 			{
-				"name": "id_paquete",
+				"name": "lote_produccion",
 				"type": "varchar"
 			},
 			{
-				"name": "numero_lote_sedem",
+				"name": "peso_paquete_kg",
 				"type": "varchar"
 			},
 			{
-				"name": "glosa_conformidad",
+				"name": "fecha_proxima_entrega",
 				"type": "varchar"
 			}
 		],

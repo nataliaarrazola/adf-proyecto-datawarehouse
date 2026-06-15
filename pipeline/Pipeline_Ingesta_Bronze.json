@@ -270,181 +270,41 @@
 						"type": "TabularTranslator",
 						"mappings": [
 							{
-								"source": {
-									"name": "ci",
-									"type": "String",
-									"physicalType": "String"
-								},
 								"sink": {
-									"name": "ci",
+									"name": "id_control_ped",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"sink": {
+									"name": "id_parto",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"sink": {
+									"name": "num_control",
 									"type": "String",
 									"physicalType": "varchar"
 								}
 							},
 							{
 								"source": {
-									"name": "nombres",
+									"name": "fecha_control",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "nombres",
+									"name": "fecha_control",
 									"type": "String",
 									"physicalType": "varchar"
 								}
 							},
 							{
-								"source": {
-									"name": "apellido_paterno",
-									"type": "String",
-									"physicalType": "String"
-								},
 								"sink": {
-									"name": "apellido_paterno",
-									"type": "String",
-									"physicalType": "varchar"
-								}
-							},
-							{
-								"source": {
-									"name": "apellido_materno",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "apellido_materno",
-									"type": "String",
-									"physicalType": "varchar"
-								}
-							},
-							{
-								"source": {
-									"name": "fecha_nacimiento",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "fecha_nacimiento",
-									"type": "String",
-									"physicalType": "varchar"
-								}
-							},
-							{
-								"source": {
-									"name": "genero",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "genero",
-									"type": "String",
-									"physicalType": "varchar"
-								}
-							},
-							{
-								"source": {
-									"name": "estado_civil",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "estado_civil",
-									"type": "String",
-									"physicalType": "varchar"
-								}
-							},
-							{
-								"source": {
-									"name": "ci_conyuge",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "ci_conyuge",
-									"type": "String",
-									"physicalType": "varchar"
-								}
-							},
-							{
-								"source": {
-									"name": "numero_hijos",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "numero_hijos",
-									"type": "String",
-									"physicalType": "varchar"
-								}
-							},
-							{
-								"source": {
-									"name": "ci_padre",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "ci_padre",
-									"type": "String",
-									"physicalType": "varchar"
-								}
-							},
-							{
-								"source": {
-									"name": "ci_madre",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "ci_madre",
-									"type": "String",
-									"physicalType": "varchar"
-								}
-							},
-							{
-								"source": {
-									"name": "profesion",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "profesion",
-									"type": "String",
-									"physicalType": "varchar"
-								}
-							},
-							{
-								"source": {
-									"name": "nivel_estudios",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "nivel_estudios",
-									"type": "String",
-									"physicalType": "varchar"
-								}
-							},
-							{
-								"source": {
-									"name": "municipio_residencia",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "municipio_residencia",
-									"type": "String",
-									"physicalType": "varchar"
-								}
-							},
-							{
-								"source": {
-									"name": "fecha_emision",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "fecha_emision",
+									"name": "estado_nutricional",
 									"type": "String",
 									"physicalType": "varchar"
 								}

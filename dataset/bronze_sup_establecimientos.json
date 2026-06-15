@@ -12,7 +12,11 @@
 		"type": "AzureSqlTable",
 		"schema": [
 			{
-				"name": "id_establecimiento_sup",
+				"name": "establecimiento_id",
+				"type": "varchar"
+			},
+			{
+				"name": "codigo_snis",
 				"type": "varchar"
 			},
 			{
@@ -20,11 +24,27 @@
 				"type": "varchar"
 			},
 			{
-				"name": "red_salud",
+				"name": "tipo",
+				"type": "varchar"
+			},
+			{
+				"name": "nivel_atencion",
 				"type": "varchar"
 			},
 			{
 				"name": "municipio",
+				"type": "varchar"
+			},
+			{
+				"name": "departamento",
+				"type": "varchar"
+			},
+			{
+				"name": "red_salud",
+				"type": "varchar"
+			},
+			{
+				"name": "estado",
 				"type": "varchar"
 			}
 		],

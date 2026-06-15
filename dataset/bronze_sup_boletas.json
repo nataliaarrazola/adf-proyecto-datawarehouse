@@ -12,15 +12,19 @@
 		"type": "AzureSqlTable",
 		"schema": [
 			{
-				"name": "id_boleta",
+				"name": "boleta_id",
 				"type": "varchar"
 			},
 			{
-				"name": "id_control_sup",
+				"name": "control_id",
 				"type": "varchar"
 			},
 			{
-				"name": "codigo_boleta",
+				"name": "ci_beneficiaria",
+				"type": "varchar"
+			},
+			{
+				"name": "nro_boleta",
 				"type": "varchar"
 			},
 			{
@@ -28,11 +32,7 @@
 				"type": "varchar"
 			},
 			{
-				"name": "trimestre_asignado",
-				"type": "varchar"
-			},
-			{
-				"name": "estado_boleta",
+				"name": "estado",
 				"type": "varchar"
 			}
 		],

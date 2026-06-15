@@ -12,7 +12,7 @@
 		"type": "AzureSqlTable",
 		"schema": [
 			{
-				"name": "id_inscripcion_sup",
+				"name": "inscripcion_id",
 				"type": "varchar"
 			},
 			{
@@ -20,11 +20,19 @@
 				"type": "varchar"
 			},
 			{
-				"name": "fecha_registro",
+				"name": "establecimiento_id",
 				"type": "varchar"
 			},
 			{
-				"name": "estado_gestacion",
+				"name": "fecha_inscripcion",
+				"type": "varchar"
+			},
+			{
+				"name": "semana_gestacion",
+				"type": "varchar"
+			},
+			{
+				"name": "estado",
 				"type": "varchar"
 			}
 		],

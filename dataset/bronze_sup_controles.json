@@ -12,23 +12,35 @@
 		"type": "AzureSqlTable",
 		"schema": [
 			{
-				"name": "id_control_sup",
+				"name": "control_id",
 				"type": "varchar"
 			},
 			{
-				"name": "id_inscripcion_sup",
+				"name": "ci_beneficiaria",
 				"type": "varchar"
 			},
 			{
-				"name": "fecha_visita",
+				"name": "establecimiento_id",
 				"type": "varchar"
 			},
 			{
-				"name": "semanas_gestacion",
+				"name": "nro_control",
 				"type": "varchar"
 			},
 			{
-				"name": "id_establecimiento",
+				"name": "fecha_control",
+				"type": "varchar"
+			},
+			{
+				"name": "semana_gestacion",
+				"type": "varchar"
+			},
+			{
+				"name": "peso_madre_kg",
+				"type": "varchar"
+			},
+			{
+				"name": "presion_arterial",
 				"type": "varchar"
 			}
 		],

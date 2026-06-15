@@ -12,11 +12,19 @@
 		"type": "AzureSqlTable",
 		"schema": [
 			{
-				"name": "id_parto",
+				"name": "parto_id",
 				"type": "varchar"
 			},
 			{
-				"name": "id_inscripcion",
+				"name": "ci_madre",
+				"type": "varchar"
+			},
+			{
+				"name": "ci_recien_nacido",
+				"type": "varchar"
+			},
+			{
+				"name": "establecimiento_id",
 				"type": "varchar"
 			},
 			{
@@ -28,7 +36,11 @@
 				"type": "varchar"
 			},
 			{
-				"name": "ci_recien_nacido",
+				"name": "peso_nacimiento_kg",
+				"type": "varchar"
+			},
+			{
+				"name": "talla_nacimiento_cm",
 				"type": "varchar"
 			}
 		],

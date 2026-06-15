@@ -12,15 +12,23 @@
 		"type": "AzureSqlTable",
 		"schema": [
 			{
-				"name": "id_control_ped",
+				"name": "control_pediatrico_id",
 				"type": "varchar"
 			},
 			{
-				"name": "id_parto",
+				"name": "ci_nino",
 				"type": "varchar"
 			},
 			{
-				"name": "num_control",
+				"name": "ci_madre",
+				"type": "varchar"
+			},
+			{
+				"name": "establecimiento_id",
+				"type": "varchar"
+			},
+			{
+				"name": "nro_control",
 				"type": "varchar"
 			},
 			{
@@ -28,7 +36,19 @@
 				"type": "varchar"
 			},
 			{
-				"name": "estado_nutricional",
+				"name": "peso_nino_kg",
+				"type": "varchar"
+			},
+			{
+				"name": "talla_nino_cm",
+				"type": "varchar"
+			},
+			{
+				"name": "vacuna_aplicada",
+				"type": "varchar"
+			},
+			{
+				"name": "resultado",
 				"type": "varchar"
 			}
 		],

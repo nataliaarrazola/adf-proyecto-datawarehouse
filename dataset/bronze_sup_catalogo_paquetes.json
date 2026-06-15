@@ -12,23 +12,23 @@
 		"type": "AzureSqlTable",
 		"schema": [
 			{
-				"name": "id_paquete",
+				"name": "paquete_id",
 				"type": "varchar"
 			},
 			{
-				"name": "nombre_paquete",
+				"name": "nombre",
 				"type": "varchar"
 			},
 			{
-				"name": "trimestre",
+				"name": "contenido",
 				"type": "varchar"
 			},
 			{
-				"name": "componentes",
+				"name": "peso_estandar_kg",
 				"type": "varchar"
 			},
 			{
-				"name": "valor_estimado_bs",
+				"name": "costo_estimado_bs",
 				"type": "varchar"
 			}
 		],
